@@ -26,3 +26,17 @@ Usage: xetex [OPTION]... [TEXNAME[.tex]] [COMMANDS]
    or: xetex [OPTION]... &FMT ARGS
 [...]
 ```
+
+To use it without typing all those parameters every time you also can use a shell alias:
+
+```bash
+# alias gentex='docker run --rm -ti -v $(pwd):/src luzifer/xetexgen'
+# gentex letter.tex
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013/Debian)
+ restricted \write18 enabled.
+entering extended mode
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013/Debian)
+ restricted \write18 enabled.
+entering extended mode
+Rendering was successful. Cleaning up...
+```
