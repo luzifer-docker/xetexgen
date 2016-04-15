@@ -1,0 +1,22 @@
+#!/bin/bash
+
+TEXFILE=$1
+
+if ! [ -f ${TEXFILE} ]; then
+  echo "You need to specify the file to render."
+  exit 1
+fi
+
+if ! ( xelatex -interaction=batchmode ${TEXFILE} ); then
+  echo "An error occurred while processing ${TEXFILE}. Please see the log."
+  exit 1
+fi
+
+# Do a second run in order to render page numbers etc
+if ! ( xelatex -interaction=batchmode ${TEXFILE} ); then
+  echo "An error occurred while processing ${TEXFILE}. Please see the log."
+  exit 1
+fi
+
+echo "Rendering was successful. Cleaning up..."
+rm -f ${TEXFILE/.tex/.log} ${TEXFILE/.tex/.aux}
