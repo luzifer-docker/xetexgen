@@ -2,6 +2,7 @@ FROM ubuntu
 
 MAINTAINER Knut Ahlers <knut@ahlers.me>
 
+ENV DEBIAN_FRONTEND=noninteractive
 ENV PACKAGES \
       texlive-xetex \
       texlive-latex-extra \
